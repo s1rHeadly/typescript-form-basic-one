@@ -27,6 +27,9 @@ li {
   padding: 6px 10px;
   border: 1px solid #eee;
   margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 li h4 {

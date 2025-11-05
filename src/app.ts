@@ -67,7 +67,7 @@
         <h4>${type}</h4>
         <p>${toFrom}</p>
         <span>${details}</span>
-        <span>${amount}</span>
+        <span>$${amount}</span>
     `;
     return listItem;
   }
