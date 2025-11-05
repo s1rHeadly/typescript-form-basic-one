@@ -7,6 +7,7 @@
     const toFrom = form.querySelector('#tofrom');
     const details = form.querySelector('#details');
     const amount = form.querySelector('#amount');
+    const list = document.querySelector('.item-list');
     ///? FUNCTIONS
     function submitHandler(event) {
         event.preventDefault();
@@ -16,8 +17,20 @@
             details: details.value,
             amount: Number(amount.value)
         };
-        console.log(formData);
-        return formData;
+        const addListItem = listDOMElement(formData);
+        list.appendChild(addListItem);
+    }
+    function listDOMElement(item) {
+        const listItem = document.createElement('li');
+        listItem.classList.add('item');
+        const { type, toFrom, details, amount } = item;
+        listItem.innerHTML = `
+        <h4>${type}</h4>
+        <p>${toFrom}</p>
+        <span>${details}</span>
+        <span>${amount}</span>
+    `;
+        return listItem;
     }
     //? Events 
     function eventHandlers() {

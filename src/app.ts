@@ -28,12 +28,14 @@
   const details = form.querySelector('#details') as HTMLInputElement;
   const amount = form.querySelector('#amount') as HTMLInputElement;
 
+  const list = document.querySelector('.item-list') as HTMLUListElement;
+
 
   
 
   
 ///? FUNCTIONS
-  function submitHandler(event: Event) : Submission{
+  function submitHandler(event: Event){
     event.preventDefault();
 
      const formData: Submission = {
@@ -42,14 +44,33 @@
       details: details.value,
       amount: Number(amount.value)
      }
-     console.log(formData);
 
 
-     return formData;
+     const addListItem = listDOMElement(formData);
+
+     list.appendChild(addListItem);
+    
+
+
   }
 
 
 
+
+  function listDOMElement(item: Submission) : HTMLLIElement{
+    const listItem = document.createElement('li');
+    listItem.classList.add('item');
+
+    const {type, toFrom, details, amount} = item;
+
+    listItem.innerHTML = `
+        <h4>${type}</h4>
+        <p>${toFrom}</p>
+        <span>${details}</span>
+        <span>${amount}</span>
+    `;
+    return listItem;
+  }
 
 
  

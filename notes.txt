@@ -1,0 +1,5 @@
+create the funtion for the form eventHandler = DONE
+
+create a function that will create a html element 
+
+create a function to render the li with the data into the dom
